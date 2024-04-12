@@ -1,0 +1,18 @@
+
+// import variables
+@use "./sass/helpers/variables" as *;
+
+// import mixins
+@use "./sass/helpers/mixins" as *;
+
+// import globalRules
+@use "./sass/helpers/globalRules";
+
+// import header
+@use "./sass/layout/header";
+
+// import home page
+@use "./sass/pages/homePage";
+
+// import footer
+@use "./sass/layout/footer";

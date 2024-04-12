@@ -1,0 +1,104 @@
+@use "../helpers/variables" as *;
+@use "../helpers/mixins" as *;
+
+:root {
+  --main-color: #ff9800;
+}
+
+header {
+  padding: 30px;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  h3 {
+    font-size: 22px;
+    color: white;
+  }
+  nav {
+    transition: $trans;
+    &.open {
+      visibility: visible;
+      opacity: 1;
+    }
+    @include breakPoints(allMobile) {
+      position: absolute;
+      top: 85px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      width: 92%;
+      z-index: 1000;
+      visibility: hidden;
+      opacity: 0;
+    }
+    a {
+      color: white;
+      transition: $trans;
+      &:not(:first-of-type) {
+        margin-left: 20px;
+        @include breakPoints(allMobile) {
+          margin-left: 0;
+          margin-top: 20px;
+        }
+      }
+      &.active,
+      &:hover {
+        color: var(--main-color);
+      }
+      @include breakPoints(allMobile) {
+        color: var(--main-color);
+        text-align: left;
+      }
+    }
+    button.lang {
+      margin-left: 20px;
+      background-color: white;
+      border: 2px solid var(--main-color);
+      padding: 5px 15px;
+      color: var(--main-color);
+      cursor: pointer;
+      transition: $trans;
+      @include breakPoints(allMobile) {
+        margin-left: 0;
+        margin-top: 20px;
+      }
+      &:hover {
+        background-color: var(--main-color);
+        color: white;
+      }
+    }
+  }
+  .icon {
+    display: none;
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 34.5px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 10px solid;
+      border-color: transparent transparent white transparent;
+      visibility: hidden;
+      opacity: 0;
+      transition: $trans;
+    }
+    svg.open-nav {
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+    }
+    &.open::before {
+      visibility: visible;
+      opacity: 1;
+    }
+    @include breakPoints(allMobile) {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,174 @@
+// import variables
+@use "./sass/helpers/variables" as *;
+
+// import mixins
+@use "./sass/helpers/mixins" as *;
+
+header {
+  nav {
+    a {
+      &:not(:first-of-type) {
+        margin-right: 20px;
+        margin-left: 0;
+        @include breakPoints(allMobile) {
+          margin-right: 0;
+          margin-left: 0;
+        }
+      }
+      @include breakPoints(allMobile) {
+        text-align: right;
+      }
+    }
+    button.lang {
+      margin-right: 20px;
+      margin-left: 0;
+      @include breakPoints(allMobile) {
+        margin-right: 0;
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.settings-box {
+  right: -251px;
+  left: unset;
+  .toggle {
+    left: -35px;
+    right: unset;
+    border: 1px solid #eee;
+    border-right: none;
+  }
+  &.open {
+    right: 0px;
+    left: unset;
+  }
+  .option-box {
+    .buttons {
+      span {
+        &:not(:last-child) {
+          margin-left: 10px;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.gallery-popup {
+  button {
+    left: -15px;
+    right: unset;
+  }
+}
+
+.timeline {
+  .container {
+    .timeline-content {
+      &::before {
+        right: 50%;
+        left: unset;
+        margin-right: -1px;
+        margin-left: 0;
+      }
+      .left::before,
+      .right::before {
+        @include breakPoints(allMobile) {
+          right: 50% !important;
+          left: unset !important;
+          transform: translateX(50%);
+        }
+      }
+      .left::after,
+      .right::after {
+        @include breakPoints(allMobile) {
+          border-color: transparent transparent white transparent !important;
+          transform: translateX(50%);
+        }
+      }
+      .left {
+        float: right;
+        &::before {
+          left: -35px;
+          right: unset;
+        }
+        &::after {
+          left: -20px;
+          right: unset;
+          border-color: transparent white transparent transparent;
+          @include breakPoints(allMobile) {
+            left: 50%;
+            right: unset;
+            transform: translateX(-50%);
+          }
+        }
+      }
+      .right {
+        float: left;
+        &::before {
+          right: -34px;
+          left: unset;
+        }
+        &::after {
+          right: -20px;
+          left: unset;
+          border-color: transparent transparent transparent white;
+          @include breakPoints(allMobile) {
+            right: 50%;
+            left: unset;
+          }
+        }
+      }
+    }
+  }
+}
+
+.testimonials {
+  &::before {
+    right: unset;
+    left: 0;
+  }
+  .container {
+    .grid {
+      .card {
+        .profile {
+          .text {
+            margin-right: 10px;
+            margin-left: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+.nav-bullets {
+  left: 20px;
+  right: unset;
+  @include breakPoints(allMobile) {
+    left: unset;
+    right: 50%;
+    transform: translateX(50%);
+  }
+  .bullet {
+    margin-right: 10px;
+    margin-left: 0;
+    & .tooltip {
+      left: 30px;
+      right: unset;
+      @include breakPoints(allMobile) {
+        left: 50%;
+        right: unset;
+      }
+      &::before {
+        left: -20px;
+        right: unset;
+        border-color: transparent var(--main-color) transparent transparent;
+        @include breakPoints(allMobile) {
+          left: 50%;
+          right: unset;
+        }
+      }
+    }
+  }
+}

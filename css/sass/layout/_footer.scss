@@ -1,0 +1,11 @@
+@use "../helpers/mixins" as *;
+@use "../helpers/variables" as *;
+
+.footer {
+  padding: 30px 0;
+  background-color: black;
+  @include flex("center");
+  p {
+    color: white;
+  }
+}

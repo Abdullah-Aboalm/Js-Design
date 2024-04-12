@@ -1,0 +1,79 @@
+// media queries
+@mixin breakPoints($size) {
+  @if $size == extraSmall {
+    @media screen and (max-width: 576px) {
+      @content;
+    }
+  } @else if $size == small {
+    @media screen and (min-width: 577px) and (max-width: 767px) {
+      @content;
+    }
+  } @else if $size == allMobile {
+    @media screen and (max-width: 767px) {
+      @content;
+    }
+  } @else if $size == medium {
+    @media screen and (min-width: 768px) and (max-width: 991px) {
+      @content;
+    }
+  } @else if $size == large {
+    @media screen and (min-width: 992px) and (max-width: 1199px) {
+      @content;
+    }
+  } @else if $size == extraLarge {
+    @media screen and (min-width: 1200px) and (max-width: 1399px) {
+      @content;
+    }
+  } @else if $size == extraExtraLarge {
+    @media screen and (min-width: 1400px) {
+      @content;
+    }
+  }
+}
+
+// overlay
+@mixin overlay($color, $opacity) {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba($color, $opacity);
+}
+
+// prefixes
+@mixin prefix($property, $propertyValue) {
+  -webkit-#{$property}: $propertyValue;
+  -moz-#{$property}: $propertyValue;
+  -o-#{$property}: $propertyValue;
+  -ms-#{$property}: $propertyValue;
+  #{$property}: $propertyValue;
+}
+
+// animation
+@mixin keyF($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+// flexCenter
+@mixin flex($justifyValue) {
+  display: flex;
+  align-items: center;
+  @if $justifyValue == "around" {
+    justify-content: space-around;
+  } @else if $justifyValue == "evenly" {
+    justify-content: space-evenly;
+  } @else if $justifyValue == "between" {
+    justify-content: space-between;
+  } @else {
+    justify-content: center;
+  }
+}

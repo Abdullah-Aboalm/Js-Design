@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Hello, I'm Abdullah and in this project,
+    I'll be implementing it using JavaScript."">
+
+    <title>قالب جافاسكريبت</title>
+
+    <link rel="stylesheet" href="css/all.min.css" />
+    <link rel="stylesheet" href="css/normalise.css" />
+    <link rel="stylesheet" href="css/website.css" />
+    <link rel="stylesheet" href="css/websiteAr.css" />
+  </head>
+  <body>
+    <!-- ! settings box -->
+    <div class="settings-box">
+      <div class="toggle">
+        <i class="fa-solid fa-gear fa-spin"></i>
+      </div>
+      <div class="option-box">
+        <h4>الألوان</h4>
+        <ul class="colors-list">
+          <li data-color="#ff9800"></li>
+          <li data-color="#E91E63"></li>
+          <li data-color="#009688"></li>
+          <li data-color="#03A9F4"></li>
+          <li data-color="#4CAF50"></li>
+        </ul>
+      </div>
+      <div class="option-box background-options">
+        <h4>خلفيات عشوائيه</h4>
+        <div class="buttons">
+          <span class="yes active" data-bg="yes">نعم</span>
+          <span class="no" data-bg="no">لا</span>
+        </div>
+      </div>
+      <div class="option-box bullets-options">
+        <h4>اظهر النقاط</h4>
+        <div class="buttons">
+          <span class="yes active" data-show="yes">نعم</span>
+          <span class="no" data-show="no">لا</span>
+        </div>
+      </div>
+      <button class="reset">اعادة ضبط الخيارات</button>
+    </div>
+    <!-- ! landing -->
+    <div class="landing">
+      <div class="overlay"></div>
+      <img src="./imgs/04.jpg" alt="MainImage" />
+      <header>
+        <h3>تصميم مميز</h3>
+        <nav>
+          <a href="#" class="active" data-section=".about-us">عنا</a>
+          <a href="#" data-section=".our-skills">المهارات</a>
+          <a href="#" data-section=".our-gallery">المعرض</a>
+          <a href="#" data-section=".timeline">الشريط الزمني</a>
+          <a href="#" data-section=".our-features">الميزات</a>
+          <a href="#" data-section=".testimonials">التوصيات</a>
+          <button class="lang" onclick="location.href = 'index.html'">
+            EN
+          </button>
+        </nav>
+        <div class="icon">
+          <i class="fa-solid fa-bars open-nav"></i>
+        </div>
+      </header>
+      <div class="text">
+        <h1>نحن وكالة <span>مبدعه</span></h1>
+        <p>
+          لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو
+          أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت
+          انيم أد مينيم فينايم,كيواس نوستريد أكسير سيتاشن يللأمكو لابورأس نيسي
+          يت أليكيوب أكس أيا كوممودو كونسيكيوات .
+        </p>
+      </div>
+    </div>
+    <!-- ! about us -->
+    <div class="about-us">
+      <div class="text">
+        <h1>عنا</h1>
+        <p>
+          لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت دو
+          أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت
+          انيم أد مينيم فينايم,كيواس نوستريد أكسير سيتاشن يللأمكو لابورأس نيسي
+          يت أليكيوب أكس أيا كوممودو كونسيكيوات .
+        </p>
+      </div>
+      <div class="image">
+        <img src="imgs/about-us.jpg" alt="AboutUs" />
+      </div>
+    </div>
+    <!-- ! our skills -->
+    <div class="our-skills">
+      <div class="container">
+        <h1>المهارات</h1>
+        <ul class="skills">
+          <li>
+            <p>HTML</p>
+            <div class="range">
+              <span style="width: 0" data-width="90%"></span>
+            </div>
+          </li>
+          <li>
+            <p>CSS</p>
+            <div class="range">
+              <span style="width: 0" data-width="80%"></span>
+            </div>
+          </li>
+          <li>
+            <p>JavaScript</p>
+            <div class="range">
+              <span style="width: 0" data-width="70%"></span>
+            </div>
+          </li>
+          <li>
+            <p>Typescript</p>
+            <div class="range">
+              <span style="width: 0" data-width="65%"></span>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- ! our gallery -->
+    <div class="our-gallery">
+      <h1>المعرض</h1>
+      <div class="container">
+        <div class="card" data-number="الصورة الاولي">
+          <img src="./imgs/03.jpg" alt="img1" />
+        </div>
+        <div class="card" data-number="الصورة الثانية">
+          <img src="./imgs/04.jpg" alt="img2" />
+        </div>
+        <div class="card" data-number="الصورة الثالثة">
+          <img src="./imgs/05.jpg" alt="img3" />
+        </div>
+        <div class="card" data-number="الصورة الرابعة">
+          <img src="./imgs/06.png" alt="img4" />
+        </div>
+        <div class="card" data-number="الصورة الخامسة">
+          <img src="./imgs/07.jpg" alt="img5" />
+        </div>
+        <div class="card" data-number="الصورة السادسة">
+          <img src="./imgs/08.jpg" alt="img6" />
+        </div>
+        <div class="card" data-number="الصورة السابعة">
+          <img src="./imgs/09.jpg" alt="img7" />
+        </div>
+        <div class="card" data-number="الصورة الثامنة">
+          <img src="./imgs/10.jpg" alt="img8" />
+        </div>
+      </div>
+    </div>
+    <!-- ! timeline -->
+    <div class="timeline">
+      <div class="container">
+        <div class="timeline-content">
+          <div class="year">2018</div>
+          <div class="left">
+            <div class="content">
+              <h3>تجربة العنوان</h3>
+              <p>
+                لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
+                أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار
+                ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد أكسير
+                سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو
+                كونسيكيوات .
+              </p>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="right">
+            <div class="content">
+              <h3>تجربة العنوان</h3>
+              <p>
+                لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
+                أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار
+                ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد أكسير
+                سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو
+                كونسيكيوات .
+              </p>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="year">2016</div>
+          <div class="left">
+            <div class="content">
+              <h3>تجربة العنوان</h3>
+              <p>
+                لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
+                أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار
+                ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد أكسير
+                سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو
+                كونسيكيوات .
+              </p>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="left">
+            <div class="content">
+              <h3>تجربة العنوان</h3>
+              <p>
+                لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج
+                أليايت,سيت دو أيوسمود تيمبور أنكايديديونتيوت لابوري ات دولار
+                ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد أكسير
+                سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو
+                كونسيكيوات .
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ! our features -->
+    <div class="our-features">
+      <h1>الميزات</h1>
+      <div class="container">
+        <div class="card">
+          <img src="./imgs/Icon_01.png" alt="Icon_01" />
+          <h3>التطوير</h3>
+          <div class="border"></div>
+          <p>نحن مسوقون محترفون، وسنفعل أي شيء تتخيله لا وقت</p>
+        </div>
+        <div class="card">
+          <img src="./imgs/Icon_02.png" alt="Icon_02" />
+          <h3>التطوير</h3>
+          <div class="border"></div>
+          <p>نحن مسوقون محترفون، وسنفعل أي شيء تتخيله لا وقت</p>
+        </div>
+        <div class="card">
+          <img src="./imgs/Icon_03.png" alt="Icon_03" />
+          <h3>التطوير</h3>
+          <div class="border"></div>
+          <p>نحن مسوقون محترفون، وسنفعل أي شيء تتخيله لا وقت</p>
+        </div>
+        <div class="card">
+          <img src="./imgs/Icon_04.png" alt="Icon_04" />
+          <h3>التطوير</h3>
+          <div class="border"></div>
+          <p>نحن مسوقون محترفون، وسنفعل أي شيء تتخيله لا وقت</p>
+        </div>
+        <div class="card">
+          <img src="./imgs/Icon_05.png" alt="Icon_05" />
+          <h3>التطوير</h3>
+          <div class="border"></div>
+          <p>نحن مسوقون محترفون، وسنفعل أي شيء تتخيله لا وقت</p>
+        </div>
+        <div class="card">
+          <img src="./imgs/Icon_06.png" alt="Icon_06" />
+          <h3>التطوير</h3>
+          <div class="border"></div>
+          <p>نحن مسوقون محترفون، وسنفعل أي شيء تتخيله لا وقت</p>
+        </div>
+      </div>
+    </div>
+    <!-- ! testimonials -->
+    <div class="testimonials">
+      <div class="container">
+        <h1>التوصيات</h1>
+        <div class="grid">
+          <div class="card">
+            <p class="comment">
+              أنا سعيد جدًا بالمنتج إنه رائع وأستلمته بسرعةٍ كبيرة وكان السعر
+              مذهلاً.
+            </p>
+            <div class="profile">
+              <div class="image">
+                <img src="./imgs/profile.jpg" alt="profile_1" />
+              </div>
+              <div class="text">
+                <h4>Abdullah Aboalm</h4>
+                <p>Front-end Developer</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <p class="comment">
+              أنا سعيد جدًا بالمنتج إنه رائع وأستلمته بسرعةٍ كبيرة وكان السعر
+              مذهلاً.
+            </p>
+            <div class="profile">
+              <div class="image">
+                <img src="./imgs/profile2.jpg" alt="profile_2" />
+              </div>
+              <div class="text">
+                <h4>Fares Madara</h4>
+                <p>back-end Developer</p>
+              </div>
+            </div>
+          </div>
+          <div class="card">
+            <p class="comment">
+              أنا سعيد جدًا بالمنتج إنه رائع وأستلمته بسرعةٍ كبيرة وكان السعر
+              مذهلاً.
+            </p>
+            <div class="profile">
+              <div class="image">
+                <img src="./imgs/profile3.jpg" alt="profile_3" />
+              </div>
+              <div class="text">
+                <h4>Jo Elshaar</h4>
+                <p>CEO At Company</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ! contact -->
+    <div class="contact">
+      <img src="./imgs/contact.png" alt="" />
+      <h1>تواصل معنا</h1>
+      <div class="container">
+        <div class="inputs">
+          <input type="text" name="UserName" placeholder="الاسم" />
+          <input type="text" name="Phone" placeholder="الرقم" />
+          <input type="email" name="Email" placeholder="البريد الالكتروني" />
+          <input type="text" name="Subject" placeholder="الموضوع" />
+        </div>
+        <div class="text-send">
+          <textarea name="Message" placeholder="الرسالة"></textarea>
+          <input type="submit" value="ارسال" onclick="location.reload()" />
+        </div>
+      </div>
+    </div>
+    <!-- ! nav bullets -->
+    <div class="nav-bullets">
+      <div class="bullet" data-section=".about-us">
+        <div class="tooltip">عنا</div>
+      </div>
+      <div class="bullet" data-section=".our-skills">
+        <div class="tooltip">المهارات</div>
+      </div>
+      <div class="bullet" data-section=".our-gallery">
+        <div class="tooltip">المعرض</div>
+      </div>
+      <div class="bullet" data-section=".timeline">
+        <div class="tooltip">الضريط الزمني</div>
+      </div>
+      <div class="bullet" data-section=".our-features">
+        <div class="tooltip">الميزات</div>
+      </div>
+      <div class="bullet" data-section=".testimonials">
+        <div class="tooltip">التوصيات</div>
+      </div>
+      <div class="bullet" data-section=".contact">
+        <div class="tooltip">تواصل معنا</div>
+      </div>
+    </div>
+    <!-- ! footer -->
+    <div class="footer">
+      <p>لقد تم العمل عليه بكل الحُب بواسطة عبدالله ابوعلم</p>
+    </div>
+
+    <script src="./js/all.min.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

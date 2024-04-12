@@ -1,0 +1,762 @@
+@use "../helpers/mixins" as *;
+@use "../helpers/variables" as *;
+
+:root {
+  --main-color: #ff9800;
+}
+
+::-webkit-scrollbar {
+  background-color: $sectionColor;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+  transition: $trans;
+}
+
+img {
+  user-select: none;
+}
+
+h1 {
+  @include breakPoints(allMobile) {
+    font-size: 30px;
+  }
+  margin-top: 0;
+}
+
+.landing {
+  height: 100vh;
+  text-align: center;
+  position: relative;
+  @include breakPoints(extraSmall) {
+    height: 80vh;
+  }
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-color: rgba(0, 0, 0, 0.368);
+  }
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+  }
+  .text {
+    position: relative;
+    top: 35%;
+    transform: translateY(-50%);
+    color: white;
+    h1 {
+      font-weight: bold;
+      @include breakPoints(allMobile) {
+        font-size: 25px;
+      }
+      span {
+        transition: $trans;
+        color: var(--main-color);
+      }
+    }
+    p {
+      width: 40%;
+      line-height: 1.5;
+      margin: 0 auto;
+      @include breakPoints(allMobile) {
+        width: 90%;
+      }
+    }
+  }
+}
+
+.settings-box {
+  position: fixed;
+  left: -251px;
+  top: 0;
+  width: 250px;
+  min-height: 100vh;
+  padding: 10px;
+  background-color: white;
+  z-index: 1000;
+  transition: $trans;
+  .toggle {
+    @include flex("center");
+    position: absolute;
+    right: -35px;
+    top: 100px;
+    padding: 10px;
+    background-color: white;
+    cursor: pointer;
+    border: 1px solid #eee;
+    border-left: none;
+  }
+  &.open {
+    left: 0px;
+    border: 1px solid #eee;
+  }
+  .option-box {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #eee;
+    h4 {
+      text-align: center;
+      color: $grayColor;
+    }
+    .buttons {
+      @include flex("center");
+      margin-top: 10px;
+      span {
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+        background-color: var(--main-color);
+        color: white;
+        padding: 5px 20px;
+        border-radius: 5px;
+        font-size: 14px;
+        opacity: 0.5;
+        cursor: pointer;
+        transition: $trans;
+        &.active {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  .colors-list {
+    padding: 10px 20px 0;
+    @include flex("between");
+    li {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      opacity: 0.5;
+      transition: $trans;
+      cursor: pointer;
+      &:first-child {
+        background-color: $orangeColor;
+      }
+      &:nth-child(2) {
+        background-color: $redColor;
+      }
+      &:nth-child(3) {
+        background-color: $greenColor;
+      }
+      &:nth-child(4) {
+        background-color: $blueColor;
+      }
+      &:nth-child(5) {
+        background-color: $lightGreenColor;
+      }
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+  button.reset {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--main-color);
+    color: white;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: $trans;
+  }
+}
+
+.about-us {
+  @include flex("between");
+  width: 75%;
+  margin: 0 auto;
+  padding: $sectionPadding;
+  @include breakPoints(allMobile) {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .text {
+    width: 50%;
+    @include breakPoints(allMobile) {
+      width: 100%;
+      margin-top: 10px;
+    }
+    h1 {
+      color: var(--main-color);
+      margin-bottom: 15px;
+    }
+    p {
+      color: $grayColor;
+      line-height: 1.6;
+      font-size: 19px;
+      @include breakPoints(allMobile) {
+        font-size: 16px;
+      }
+      @include breakPoints(medium) {
+        font-size: 17px;
+      }
+    }
+  }
+  .image {
+    width: 40%;
+    text-align: right;
+    @include breakPoints(allMobile) {
+      width: 100%;
+      text-align: center;
+    }
+    @include breakPoints(medium) {
+      width: 40%;
+    }
+    img {
+      width: 100%;
+      @include breakPoints(allMobile) {
+        width: 60%;
+      }
+    }
+  }
+}
+
+.our-skills {
+  @include flex("center");
+  min-height: 60vh;
+  padding: $sectionPadding;
+  background-color: $sectionColor;
+  .container {
+    width: 80%;
+    h1 {
+      color: var(--main-color);
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    ul.skills {
+      li {
+        @include flex("between");
+        background-color: white;
+        padding: 20px;
+        margin-bottom: 15px;
+        @include breakPoints(allMobile) {
+          flex-direction: column;
+        }
+        p {
+          font-weight: bold;
+          font-size: 18px;
+          width: 20%;
+          text-align: center;
+          @include breakPoints(allMobile) {
+            margin-bottom: 15px;
+            width: fit-content;
+          }
+        }
+        .range {
+          width: 80%;
+          height: 35px;
+          border-radius: 5px;
+          overflow: hidden;
+          background-color: #eee;
+          @include breakPoints(allMobile) {
+            width: 100%;
+          }
+          span {
+            display: block;
+            height: 100%;
+            background-color: var(--main-color);
+            transition: $trans + 1;
+          }
+        }
+      }
+    }
+  }
+}
+
+.our-gallery {
+  @include flex("center");
+  flex-direction: column;
+  padding: $sectionPadding;
+  h1 {
+    color: var(--main-color);
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .container {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    .card {
+      border: 5px solid rgb(227, 226, 226);
+      cursor: pointer;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.gallery-overlay {
+  @include overlay(black, 0.6);
+  z-index: 10000;
+}
+
+.gallery-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50%;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  z-index: 15000;
+  text-align: center;
+  @include breakPoints(allMobile) {
+    width: 90%;
+  }
+  h2 {
+    margin-bottom: 10px;
+    color: var(--main-color);
+  }
+  img {
+    width: 100%;
+  }
+  button {
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    width: 30px;
+    height: 30px;
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+}
+
+.timeline {
+  background-color: $sectionColor;
+  padding: $sectionPadding;
+  @include flex("center");
+  .container {
+    width: 80%;
+    .timeline-content {
+      position: relative;
+      overflow: hidden;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        margin-left: -1px;
+        width: 2.5px;
+        height: 100%;
+        background-color: var(--main-color);
+      }
+      .year {
+        margin: 20px auto;
+        width: 50px;
+        background-color: var(--main-color);
+        position: relative;
+        z-index: 2;
+        border-radius: 4px;
+        text-align: center;
+        color: white;
+        padding: 2px 5px;
+        font-weight: bold;
+        transition: $trans;
+      }
+      .left,
+      .right {
+        width: calc(50% - 25px);
+        margin-bottom: 40px;
+        position: relative;
+        @include breakPoints(allMobile) {
+          width: 100%;
+        }
+        .content {
+          padding: 20px;
+          background-color: white;
+          @include breakPoints(allMobile) {
+            margin-top: 60px;
+            text-align: center;
+          }
+          h3 {
+            font-weight: bold;
+            color: var(--main-color);
+            margin: 0 0 10px;
+            transition: $trans;
+          }
+          p {
+            color: $grayColor;
+            margin: 0;
+            line-height: 1.6;
+            transition: $trans;
+          }
+        }
+      }
+      .left::before,
+      .right::before {
+        content: "";
+        width: 14px;
+        height: 14px;
+        background-color: white;
+        border: 3px solid var(--main-color);
+        position: absolute;
+        border-radius: 50%;
+        top: 20px;
+        @include breakPoints(allMobile) {
+          left: 50% !important;
+          right: unset !important;
+          transform: translateX(-50%);
+        }
+      }
+      .left::after,
+      .right::after {
+        content: "";
+        position: absolute;
+        top: 20px;
+        border: 11px solid;
+        @include breakPoints(allMobile) {
+          top: 40px;
+          border-color: transparent transparent white transparent !important;
+          transform: translateX(-50%);
+        }
+      }
+      .left {
+        float: left;
+        &::before {
+          right: -35px;
+        }
+        &::after {
+          right: -20px;
+          border-color: transparent transparent transparent white;
+          @include breakPoints(allMobile) {
+            right: 50%;
+            transform: translateX(50%);
+          }
+        }
+      }
+      .right {
+        float: right;
+        &::before {
+          left: -34px;
+        }
+        &::after {
+          left: -20px;
+          border-color: transparent white transparent transparent;
+          @include breakPoints(allMobile) {
+            left: 50%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.clearfix {
+  clear: both;
+}
+
+.our-features {
+  padding: $sectionPadding;
+  @include flex("center");
+  flex-direction: column;
+  h1 {
+    color: var(--main-color);
+    margin-bottom: 50px;
+    transition: $trans;
+  }
+  .container {
+    width: 80%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    @include breakPoints(extraSmall) {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    column-gap: 80px;
+    row-gap: 40px;
+    .card {
+      @include flex("center");
+      flex-direction: column;
+      text-align: center;
+      img {
+        width: 80px;
+        margin-bottom: 10px;
+      }
+      h3 {
+        font-size: 22px;
+      }
+      .border {
+        margin: 20px 0;
+        height: 4px;
+        width: 40px;
+        box-shadow: 0 0 10px var(--main-color);
+        background-color: var(--main-color);
+        border-radius: 10px;
+        transition: $trans;
+      }
+      p {
+        line-height: 1.6;
+        color: $grayColor;
+      }
+    }
+  }
+}
+
+.testimonials {
+  padding: $sectionPadding;
+  background-color: var(--main-color);
+  transition: $trans;
+  position: relative;
+  &::before {
+    content: "";
+    position: absolute;
+    background-color: black;
+    right: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+  }
+  .container {
+    width: 80%;
+    margin: 0 auto;
+    h1 {
+      color: white;
+      position: relative;
+      z-index: 50;
+      @include breakPoints(allMobile) {
+        text-align: center;
+      }
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 60px;
+      @include breakPoints(extraSmall) {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      }
+      .card {
+        z-index: 1;
+        background-color: white;
+        padding: 20px;
+        p.comment {
+          color: $grayColor;
+          margin-bottom: 10px;
+          line-height: 1.6;
+          font: {
+            style: italic;
+            weight: bold;
+          }
+        }
+        .profile {
+          display: flex;
+          align-items: center;
+          .image {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            overflow: hidden;
+            position: relative;
+            img {
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 100%;
+            }
+          }
+          .text {
+            margin-left: 10px;
+            h4 {
+              margin-bottom: 5px;
+            }
+            p {
+              font-size: 13px;
+              color: $grayColor;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.nav-bullets {
+  position: fixed;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  transition: $trans;
+  z-index: 100;
+  @include breakPoints(allMobile) {
+    flex-direction: row;
+    top: unset;
+    right: unset;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .bullet {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 3.5px solid var(--main-color);
+    margin-bottom: 10px;
+    position: relative;
+    margin-left: 10px;
+    cursor: pointer;
+    @include breakPoints(allMobile) {
+      background-color: white;
+    }
+    & .tooltip {
+      position: absolute;
+      width: 120px;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 4px 10px;
+      color: white;
+      background-color: var(--main-color);
+      text-align: center;
+      opacity: 0;
+      visibility: hidden;
+      transition: $trans;
+      @include breakPoints(allMobile) {
+        top: -50px;
+        right: 50%;
+        transform: translateX(50%);
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        right: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 11.5px solid;
+        border-color: transparent transparent transparent var(--main-color);
+        @include breakPoints(allMobile) {
+          top: 100%;
+          right: 50%;
+          transform: translateX(50%);
+          border-color: var(--main-color) transparent transparent transparent;
+        }
+      }
+    }
+    &:hover .tooltip {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+  &.hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+.contact {
+  padding: $sectionPadding;
+  @include flex("center");
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    opacity: 0.4;
+    z-index: -1;
+    @include breakPoints(allMobile) {
+      width: 150%;
+    }
+  }
+  h1 {
+    color: var(--main-color);
+    transition: $trans;
+    margin-bottom: 50px;
+  }
+  .container {
+    display: flex;
+    gap: 10px;
+    width: 45%;
+    @include breakPoints(medium) {
+      width: 60%;
+    }
+    @include breakPoints(allMobile) {
+      width: 90%;
+    }
+    @include breakPoints(extraSmall) {
+      flex-direction: column;
+    }
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      width: 50%;
+      @include breakPoints(extraSmall) {
+        width: 100%;
+      }
+      input {
+        border: 3px solid #eee;
+        padding: 10px;
+        transition: $trans;
+        &:focus {
+          outline: none;
+          border-color: var(--main-color);
+        }
+        &::placeholder {
+          color: #ccc;
+        }
+      }
+    }
+    .text-send {
+      display: flex;
+      flex-direction: column;
+      row-gap: 10px;
+      width: 48%;
+      @include breakPoints(extraSmall) {
+        width: 100%;
+      }
+      textarea {
+        resize: none;
+        height: 74.5%;
+        border: 3px solid #eee;
+        padding: 10px;
+        transition: $trans;
+        &::placeholder {
+          color: #ccc;
+        }
+        &:focus {
+          outline: none;
+          border-color: var(--main-color);
+        }
+      }
+      input {
+        padding: 10px;
+        border: 2px solid var(--main-color);
+        background-color: white;
+        color: var(--main-color);
+        font-size: 18px;
+        transition: $trans;
+        cursor: pointer;
+        &:hover {
+          background-color: var(--main-color);
+          color: white;
+        }
+      }
+    }
+    input:focus::placeholder,
+    textarea:focus::placeholder {
+      opacity: 0;
+    }
+  }
+}
